@@ -1,0 +1,10 @@
+Mapa,Agentes,Bando,Rol,Tactica,Descripcion,Link
+Banco,Maverick,Atacante,Breacher,2 personas,(Planta3) Entrada por la parte de atras del punto abriendo una pared como en el link,link
+Banco,Maverick,Atacante,Breacher,Solitario,(X Planta) Abrir agujero en paredes para poder hacer un pick menos arriesgado y pillar al enemigo por sorpresa,link
+Banco,Maverick,Atacante,Breacher,Solitario,(X Planta) Abrir trampillas haciendo una X,link
+Banco,Hibana,Atacante,Breacher,Solitario,(X Planta) Usar 4 X-Kairos para abrir una trampilla,link
+Banco,Kali,Atacante,Support,Solitario,(Planta3) Spawn en el aparcamiento y cubrir desde lejos la entrada del equipo y cortar las rotaciones,link
+Banco,Kali,Atacante,Support,Solitario,(Planta3) Hacer rappel en la pared frente al aparcamiento y desde las ventanas cortar rotaciones al enemigo,link
+Banco,Mira,Defensor,Ancla,Solitario,(Sotano) Colocar el espejo negro en la segunda pared del fondo del punto de B para controlar la entrada por la puerta de atras y la trampilla,link
+Banco,Smoke,Defensor,Ancla,Solitario,(Sotano) Abrir una rotacion en el punto de B en la ultima pared del fondo de modo que pasen sin tener que saltar [ver link para mas detalles],link
+Consulado,Montagne,Atacante,Support,Solitario,(X Planta - PlantaS) Una vez abierto el punto entrada con humos se planta y se defiende desde fuera,link

@@ -1,0 +1,12 @@
+Banco
+Frontera
+Chalet
+Club
+Litoral
+Consulado
+Cafe
+Canal
+Oregon
+Rascacielos
+Parque
+Villa
