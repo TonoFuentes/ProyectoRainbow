@@ -11,29 +11,31 @@ public class Controlador {
     private static int mapaSeleccionado;
     private static String bando;
 
-    public static void main(String[] args) throws IOException {
-        añadirMapas();
-        añadirAgentes();
-        agentes.numeroDeAgentes();
+    public static void main(String[] args) {
+        try {
+            añadirMapas();
+            añadirAgentes();
+            agentes.numeroDeAgentes();
 
-        System.out.println("Bienvenido Agente");
-        System.out.println("1. Listar Tacticas");
-        System.out.println("2. Añadir Tacticas");
-        System.out.println("3. Salir");
-        System.out.print("> ");
-        respuesta = teclado.nextInt();
+            System.out.println("Bienvenido Agente");
+            System.out.println("1. Listar Tacticas");
+            System.out.println("2. Añadir Tacticas");
+            System.out.println("3. Salir");
+            System.out.print("> ");
+            respuesta = teclado.nextInt();
 
-        switch (respuesta){
-            case 1:
-                listarTacticas();
-                break;
+            switch (respuesta){
+                case 1:
+                    listarTacticas();
+                    break;
 
-            case 2:
-                añadirTacticas();
-                break;
+                case 2:
+                    añadirTacticas();
+                    break;
+            }
+        } catch (IOException e) {
+            System.out.println("Fichero no encontrado o no existe");
         }
-
-
     }
 
     private static void listarTacticas() throws FileNotFoundException {
@@ -64,18 +66,16 @@ public class Controlador {
 
             System.out.println("================");
             System.out.println("|   Atacante   |");
-            System.out.println("================");
 
-            mostrarTacticas(mapas.getMapas().get(mapaSeleccionado),bando);
         } else {
             bando = "Defensor";
 
             System.out.println("================");
             System.out.println("|   Defensor   |");
-            System.out.println("================");
 
-            mostrarTacticas(mapas.getMapas().get(mapaSeleccionado),bando);
         }
+        System.out.println("================");
+        mostrarTacticas(mapas.getMapas().get(mapaSeleccionado),bando);
     }
 
     private static void añadirMapas() throws FileNotFoundException {
@@ -102,7 +102,7 @@ public class Controlador {
     }
 
     private static void mostrarTacticas(String mapa, String bando) throws FileNotFoundException {
-        File fichero = new File("./Ficheros/Banco.csv");
+        File fichero = new File("./Ficheros/Tacticas.csv");
         Scanner leer = new Scanner(new FileReader(fichero));
 
         while (leer.hasNextLine()) {
@@ -117,7 +117,7 @@ public class Controlador {
     }
 
     private static void añadirTacticas() throws IOException {
-        File fichero = new File("./Ficheros/Banco.csv");
+        File fichero = new File("./Ficheros/Tacticas.csv");
         BufferedWriter escribir = new BufferedWriter(new FileWriter(fichero, true));
         int agenteSeleccionado;
 
@@ -150,7 +150,6 @@ public class Controlador {
 
             escribir.write("\n");
             escribir.write(mapas.getMapas().get(mapaSeleccionado) + "," + agentes.listarAgentesAtacantes().get(agenteSeleccionado) + "," + bando);
-            escribir.close();
         } else {
             bando = "Defensor";
             System.out.println("Defensores");
@@ -165,7 +164,7 @@ public class Controlador {
 
             escribir.write("\n");
             escribir.write(mapas.getMapas().get(mapaSeleccionado) + "," + agentes.listarAgentesDefensores().get(agenteSeleccionado) + "," + bando);
-            escribir.close();
         }
+        escribir.close();
     }
 }
