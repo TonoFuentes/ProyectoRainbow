@@ -7,6 +7,7 @@ public class Controlador {
     private static Mapa mapas = new Mapa();
     private static Agente agentes = new Agente();
     private static Scanner teclado = new Scanner(System.in);
+    private static boolean comprobacion = false;
     private static int respuesta;
     private static int mapaSeleccionado;
     private static String bando;
@@ -17,22 +18,30 @@ public class Controlador {
             añadirAgentes();
             agentes.numeroDeAgentes();
 
-            System.out.println("Bienvenido Agente");
-            System.out.println("1. Listar Tacticas");
-            System.out.println("2. Añadir Tacticas");
-            System.out.println("3. Salir");
-            System.out.print("> ");
-            respuesta = teclado.nextInt();
+            do {
+                System.out.println("Bienvenido Agente");
+                System.out.println("1. Listar Tacticas");
+                System.out.println("2. Añadir Tacticas");
+                System.out.println("3. Salir");
+                System.out.print("> ");
+                respuesta = teclado.nextInt();
 
-            switch (respuesta){
-                case 1:
-                    listarTacticas();
-                    break;
+                switch (respuesta){
+                    case 1:
+                        listarTacticas();
+                        break;
 
-                case 2:
-                    añadirTacticas();
-                    break;
-            }
+                    case 2:
+                        añadirTacticas();
+                        break;
+
+                    case 3:
+                        comprobacion = true;
+                        break;
+                }
+
+                System.out.println();
+            } while (!comprobacion);
         } catch (IOException e) {
             System.out.println("Fichero no encontrado o no existe");
         }
