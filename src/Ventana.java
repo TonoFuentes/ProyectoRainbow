@@ -17,29 +17,55 @@ public class Ventana {
     private JLabel lblBando;
     private JPanel pnl2;
     private JLabel lblMensaje;
+    private JList lstTacticas;
+    private JRadioButton btnAtacante;
+    private JRadioButton btnDefensor;
     private String mapa;
     private String bando;
 
     public Ventana() throws FileNotFoundException {
-        añadirMapas();
         setCmbMapa();
         cmbMapa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                mapa = cmbMapa.getSelectedItem().toString();
+                try {
+                    listarTacticas();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         cmbBando.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 bando = cmbBando.getSelectedItem().toString();
+                try {
+                    listarTacticas();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
-
+        lblMensaje.setText("Made by Tono Fuentes");
     }
 
-    public void listarTacticas() {
+    public void listarTacticas() throws FileNotFoundException {
+        File fichero = new File("./Ficheros/Tacticas.csv");
+        Scanner leer = new Scanner(new FileReader(fichero));
+        DefaultListModel modelo = new DefaultListModel();
 
+        while (leer.hasNextLine()) {
+            String linea[] = leer.nextLine().split(",");
+
+            if (mapa.equals(linea[0])){
+                if (bando.equals(linea[2])){
+                    modelo.addElement(linea[1] + " - " + linea[3] + " - " + linea[4] + " - " + linea[5]);
+                }
+            }
+        }
+
+        lstTacticas.setModel(modelo);
     }
 
     public void setCmbMapa() throws FileNotFoundException {
@@ -50,38 +76,6 @@ public class Ventana {
         while (leer.hasNextLine())
             model.addElement(leer.nextLine());
         cmbMapa.setModel(model);
-    }
-
-    private static void añadirMapas() throws FileNotFoundException {
-        File fichero = new File("./Ficheros/mapas.txt");
-        Scanner leer = new Scanner(new FileReader(fichero));
-
-        while (leer.hasNextLine())
-            MapaInterfaz.añadirMapa(leer.nextLine());
-    }
-
-    public static class MapaInterfaz {
-        private static String nombre;
-        private static ArrayList<String> mapas = new ArrayList<>();
-
-        public MapaInterfaz(String nombre) {
-            this.nombre = nombre;
-        }
-
-        public MapaInterfaz() {}
-
-        public ArrayList<String> getMapas() {
-            return mapas;
-        }
-
-        public static void añadirMapa(String mapa) {
-            mapas.add(mapa);
-        }
-
-        @Override
-        public String toString() {
-            return "Mapa - " + nombre;
-        }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
