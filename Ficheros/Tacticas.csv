@@ -8,9 +8,5 @@ Banco,Kali,Atacante,Support,Solitario,(Planta3) Hacer rappel en la pared frente 
 Banco,Mira,Defensor,Ancla,Solitario,(Sotano) Colocar el espejo negro en la segunda pared del fondo del punto de B para controlar la entrada por la puerta de atras y la trampilla,link
 Banco,Smoke,Defensor,Ancla,Solitario,(Sotano) Abrir una rotacion en el punto de B en la ultima pared del fondo de modo que pasen sin tener que saltar [ver link para mas detalles],link
 Consulado,Montagne,Atacante,Support,Solitario,(X Planta - PlantaS) Una vez abierto el punto entrada con humos se planta y se defiende desde fuera,link
-Consulado,Maverick,Atacante
-Chalet,Montagne,Atacante
-Consulado,nokk,Atacante
-Villa,maestro,Defensor
-Villa,hibana,Atacante
-Rascacielos,nokk,Atacante
+Consulado,Montagne,Atacante,Support,Solitario,(X Planta - PlantaS) Una vez abierto el punto entrada con humos se planta y se defiende desde fuera,link
+Consulado,Montagne,Atacante,Support,Solitario,(X Planta - PlantaS) Una vez abierto el punto entrada con humos se planta y se defiende desde fuera,link

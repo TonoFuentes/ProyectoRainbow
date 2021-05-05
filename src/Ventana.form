@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Ventana">
-  <grid id="27dc6" binding="pnl" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="pnl" layout-manager="GridLayoutManager" row-count="25" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="918" height="730"/>
     </constraints>
     <properties>
       <background color="-11709611"/>
@@ -19,33 +19,30 @@
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <vspacer id="5cb33">
-        <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <component id="74c6f" class="javax.swing.JComboBox" binding="cmbMapa">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
           <model/>
         </properties>
       </component>
       <component id="d1244" class="javax.swing.JLabel" binding="lblBando">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-5239550"/>
-          <foreground color="-5239550"/>
+          <foreground color="-3587"/>
           <text value="Bando"/>
         </properties>
       </component>
-      <grid id="fba3f" binding="pnl2" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="fba3f" binding="pnl2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="1" row-span="7" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="7" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-11709611"/>
@@ -60,59 +57,258 @@
               </grid>
             </constraints>
             <properties>
-              <foreground color="-11709611"/>
+              <background color="-11709611"/>
+              <foreground color="-3587"/>
               <selectionForeground color="-11709611"/>
-            </properties>
-          </component>
-          <component id="91f22" class="javax.swing.JLabel" binding="lblMensaje">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <foreground color="-11709611"/>
-              <text value="Label"/>
             </properties>
           </component>
         </children>
       </grid>
-      <component id="97803" class="javax.swing.JComboBox" binding="cmbBando">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value=""/>
-            <item value="Atacante"/>
-            <item value="Defensor"/>
-          </model>
-        </properties>
-      </component>
       <component id="3ced" class="javax.swing.JLabel" binding="lblMapa">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-5239550"/>
-          <foreground color="-5239550"/>
+          <foreground color="-3587"/>
           <text value="Mapa"/>
         </properties>
       </component>
-      <component id="bd567" class="javax.swing.JRadioButton" binding="btnAtacante">
+      <component id="bd567" class="javax.swing.JRadioButton" binding="rbnAtacante">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
           <text value="Atacante"/>
         </properties>
       </component>
-      <component id="618e7" class="javax.swing.JRadioButton" binding="btnDefensor">
+      <component id="618e7" class="javax.swing.JRadioButton" binding="rbnDefensor">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
           <text value="Defensor"/>
         </properties>
       </component>
+      <component id="9c6ce" class="javax.swing.JButton" binding="btnConfirmar">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Confirmar"/>
+        </properties>
+      </component>
+      <component id="ed718" class="javax.swing.JLabel" binding="lblEspacio">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <grid id="e8603" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="12" column="1" row-span="13" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="1985b" class="javax.swing.JTextPane" binding="textPane1" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-11709611"/>
+              <foreground color="-3587"/>
+            </properties>
+          </component>
+          <component id="290f6" class="javax.swing.JLabel" binding="lblMensajeAgregar">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-11709611"/>
+              <foreground color="-3587"/>
+              <text value="Describe tu tactica"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="8cf2c" class="javax.swing.JLabel" binding="lblMapaAgregar">
+        <constraints>
+          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-5239550"/>
+          <foreground color="-3587"/>
+          <text value="Mapa"/>
+        </properties>
+      </component>
+      <component id="d6f6f" class="javax.swing.JButton" binding="btnConfirmarAgregar">
+        <constraints>
+          <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Confirmar"/>
+        </properties>
+      </component>
+      <component id="75556" class="javax.swing.JRadioButton" binding="rbnAtacnteAgregar">
+        <constraints>
+          <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Atacante"/>
+        </properties>
+      </component>
+      <component id="1e7c7" class="javax.swing.JRadioButton" binding="rbnDefensorAgregar">
+        <constraints>
+          <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Defensor"/>
+        </properties>
+      </component>
+      <component id="74d78" class="javax.swing.JLabel" binding="lblBandosAgregar">
+        <constraints>
+          <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-5239550"/>
+          <foreground color="-3587"/>
+          <text value="Bando"/>
+        </properties>
+      </component>
+      <component id="77485" class="javax.swing.JLabel" binding="lblAgentesAgregar">
+        <constraints>
+          <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Agentes"/>
+        </properties>
+      </component>
+      <component id="65929" class="javax.swing.JComboBox" binding="cmbAgentesAgregar">
+        <constraints>
+          <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+        </properties>
+      </component>
+      <component id="ee8c4" class="javax.swing.JLabel" binding="lblRolesAgregar">
+        <constraints>
+          <grid row="19" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Roles"/>
+        </properties>
+      </component>
+      <component id="1c9a8" class="javax.swing.JComboBox" binding="cmbRolesAgregar">
+        <constraints>
+          <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <model>
+            <item value="Support"/>
+            <item value="Entry Fragger"/>
+            <item value="Breacher"/>
+          </model>
+        </properties>
+      </component>
+      <component id="99d3d" class="javax.swing.JLabel" binding="lblListarTacticas">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <font size="20"/>
+          <foreground color="-3587"/>
+          <text value="Listar Tacticas"/>
+        </properties>
+      </component>
+      <hspacer id="4209d">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="c319c" class="javax.swing.JLabel" binding="lblAgregarTacticas">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <font size="20"/>
+          <foreground color="-3587"/>
+          <text value="Agregar Tacticas"/>
+        </properties>
+      </component>
+      <component id="1215c" class="javax.swing.JLabel" binding="lblPersonasAgregar">
+        <constraints>
+          <grid row="21" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Numero Personas"/>
+        </properties>
+      </component>
+      <component id="b283e" class="javax.swing.JRadioButton" binding="rdbSolitarioAgregar">
+        <constraints>
+          <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Solitario"/>
+        </properties>
+      </component>
+      <component id="132c7" class="javax.swing.JRadioButton" binding="rdbGrupoAgregar">
+        <constraints>
+          <grid row="23" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+          <text value="Grupo"/>
+        </properties>
+      </component>
+      <component id="bca8" class="javax.swing.JComboBox" binding="cmbMapasAgregar">
+        <constraints>
+          <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-11709611"/>
+          <foreground color="-3587"/>
+        </properties>
+      </component>
+      <hspacer id="5de30">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
   <buttonGroups>
@@ -123,6 +319,14 @@
     <group name="btnBando">
       <member id="bd567"/>
       <member id="618e7"/>
+    </group>
+    <group name="rdbAgentesAgregar">
+      <member id="75556"/>
+      <member id="1e7c7"/>
+    </group>
+    <group name="rdbPersonas">
+      <member id="b283e"/>
+      <member id="132c7"/>
     </group>
   </buttonGroups>
 </form>
