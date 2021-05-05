@@ -142,7 +142,7 @@ public class Ventana {
         DefaultListModel modelo = new DefaultListModel();
 
         while (leer.hasNextLine()) {
-            String linea[] = leer.nextLine().split(",");
+            String[] linea = leer.nextLine().split(",");
 
             if (mapa.equals(linea[0])){
                 if (bando.equals(linea[2])){
