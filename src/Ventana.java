@@ -1,9 +1,6 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.awt.event.*;
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -45,13 +42,15 @@ public class Ventana {
     private String agregarAgente;
     private String agregarRol;
     private String agregarPersonas;
+    private String tactica;
 
     public Ventana() throws FileNotFoundException {
         setMapas();
+        setMapasAgregar();
         cmbMapa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               mapa = cmbMapa.getSelectedItem().toString();
+                mapa = cmbMapa.getSelectedItem().toString();
             }
         });
         rbnAtacante.addActionListener(new ActionListener() {
@@ -131,7 +130,12 @@ public class Ventana {
         btnConfirmarAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    escribirTactica();
+                    textPane1.setText("");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
     }
@@ -162,7 +166,17 @@ public class Ventana {
         while (leer.hasNextLine())
             model.addElement(leer.nextLine());
         cmbMapa.setModel(model);
-        cmbMapasAgregar.setModel(model);
+    }
+
+    public void setMapasAgregar() throws FileNotFoundException {
+        File fichero = new File("./Ficheros/mapas.txt");
+        Scanner leer = new Scanner(new FileReader(fichero));
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
+
+        while (leer.hasNextLine())
+            modelo.addElement(leer.nextLine());
+
+        cmbMapasAgregar.setModel(modelo);
     }
 
     public void setCmbAgentesAgregar() throws FileNotFoundException {
@@ -177,6 +191,16 @@ public class Ventana {
                 model.addElement(linea[1]);
         }
         cmbAgentesAgregar.setModel(model);
+    }
+
+    public void escribirTactica() throws IOException {
+        tactica = textPane1.getText();
+        File fichero = new File("./Ficheros/Tacticas.csv");
+        BufferedWriter escribir = new BufferedWriter(new FileWriter(fichero, true));
+
+        escribir.write(agregarMapa + "," + agregarAgente + "," + agregarBando + "," + agregarRol + "," + agregarPersonas + "," + tactica);
+        escribir.write("\n");
+        escribir.close();
     }
 
     public static void main(String[] args) throws FileNotFoundException {
