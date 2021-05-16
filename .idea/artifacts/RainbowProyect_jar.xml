@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RainbowProyect:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RainbowProyect_jar</output-path>
+    <root id="archive" name="RainbowProyect.jar">
+      <element id="module-output" name="RainbowProyect" />
+      <element id="dir-copy" path="$PROJECT_DIR$/Ficheros" />
+    </root>
+  </artifact>
+</component>

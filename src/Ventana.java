@@ -1,10 +1,11 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.Scanner;
 
 
-public class Ventana {
+public class Ventana extends Component{
     private JButton btnMapas;
     private JPanel pnl;
     private JComboBox<String> cmbMapa;
@@ -35,34 +36,58 @@ public class Ventana {
     private JRadioButton rdbSolitarioAgregar;
     private JRadioButton rdbGrupoAgregar;
     private JLabel lblMensajeAgregar;
-    private String mapa;
-    private String bando;
+    private String mapaElegido;
+    private String bandoElegido;
     private String agregarMapa;
     private String agregarBando;
     private String agregarAgente;
     private String agregarRol;
     private String agregarPersonas;
-    private String tactica;
+    private String descripcionTactica;
+    private static JMenuBar barraDeMenus;
+    private JMenu importar;
+    private JMenuItem menuAgentes;
+    private JMenuItem menuMapas;
+    private JMenuItem menuTacticas;
+    private JFileChooser archivo;
+    private Scanner archivoTacticas;
+    private Scanner archivoMapas;
+    private Scanner archivoAgentes;
+    private File ficheroTacticas;
+    private File ficheroAgentes;
+    private File ficheroMapas;
 
-    public Ventana() throws FileNotFoundException {
-        setMapas();
-        setMapasAgregar();
+    public Ventana() {
+        //Instanciacion de atributos
+        this.barraDeMenus = new JMenuBar();
+        this.importar = new JMenu("Importar");
+        this.menuAgentes = new JMenuItem("Agentes");
+        this.menuMapas = new JMenuItem("Mapas");
+        this.menuTacticas = new JMenuItem("Tacticas");
+
+        //Creacion e importacion de la barra de menus y los items
+        barraDeMenus.add(importar);
+        importar.add(menuAgentes);
+        importar.add(menuMapas);
+        importar.add(menuTacticas);
+
+
         cmbMapa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mapa = cmbMapa.getSelectedItem().toString();
+                mapaElegido = cmbMapa.getSelectedItem().toString();
             }
         });
         rbnAtacante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                bando = rbnAtacante.getText();
+                bandoElegido = rbnAtacante.getText();
             }
         });
         rbnDefensor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                bando = rbnDefensor.getText();
+                bandoElegido = rbnDefensor.getText();
             }
         });
         btnConfirmar.addActionListener(new ActionListener() {
@@ -138,18 +163,47 @@ public class Ventana {
                 }
             }
         });
+        menuAgentes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                archivo = new JFileChooser();
+                archivo.showOpenDialog(null);
+                ficheroAgentes = archivo.getSelectedFile();
+            }
+        });
+        menuMapas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                archivo = new JFileChooser();
+                archivo.showOpenDialog(null);
+                ficheroMapas = archivo.getSelectedFile();
+                try {
+                    setMapas();
+                    setMapasAgregar();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+        menuTacticas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                archivo = new JFileChooser();
+                archivo.showOpenDialog(null);
+                ficheroTacticas = archivo.getSelectedFile();
+            }
+        });
     }
 
     public void listarTacticas() throws FileNotFoundException {
-        File fichero = new File("./Ficheros/Tacticas.csv");
-        Scanner leer = new Scanner(new FileReader(fichero));
         DefaultListModel modelo = new DefaultListModel();
+        archivoTacticas = new Scanner(new FileReader(ficheroTacticas));
 
-        while (leer.hasNextLine()) {
-            String[] linea = leer.nextLine().split(",");
+        while (archivoTacticas.hasNextLine()) {
+            String[] linea = archivoTacticas.nextLine().split(",");
 
-            if (mapa.equals(linea[0])){
-                if (bando.equals(linea[2])){
+            if (mapaElegido.equals(linea[0])){
+                if (bandoElegido.equals(linea[2])){
                     modelo.addElement(linea[1] + " - " + linea[3] + " - " + linea[4] + " - " + linea[5]);
                 }
             }
@@ -159,33 +213,30 @@ public class Ventana {
     }
 
     public void setMapas() throws FileNotFoundException {
-        File fichero = new File("./Ficheros/mapas.txt");
-        Scanner leer = new Scanner(new FileReader(fichero));
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
+        archivoMapas = new Scanner(new FileReader(ficheroMapas));
 
-        while (leer.hasNextLine())
-            model.addElement(leer.nextLine());
+        while (archivoMapas.hasNextLine())
+            model.addElement(archivoMapas.nextLine());
         cmbMapa.setModel(model);
     }
 
     public void setMapasAgregar() throws FileNotFoundException {
-        File fichero = new File("./Ficheros/mapas.txt");
-        Scanner leer = new Scanner(new FileReader(fichero));
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<String>();
+        archivoMapas = new Scanner(new FileReader(ficheroMapas));
 
-        while (leer.hasNextLine())
-            modelo.addElement(leer.nextLine());
+        while (archivoMapas.hasNextLine())
+            modelo.addElement(archivoMapas.nextLine());
 
         cmbMapasAgregar.setModel(modelo);
     }
 
     public void setCmbAgentesAgregar() throws FileNotFoundException {
-        File fichero = new File("./Ficheros/agentes.csv");
-        Scanner leer = new Scanner(new FileReader(fichero));
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
+        archivoAgentes = new Scanner(new FileReader(ficheroAgentes));
 
-        while (leer.hasNextLine()) {
-            String[] linea = leer.nextLine().split(",");
+        while (archivoAgentes.hasNextLine()) {
+            String[] linea = archivoAgentes.nextLine().split(",");
 
             if (agregarBando.equals(linea[0]))
                 model.addElement(linea[1]);
@@ -194,13 +245,18 @@ public class Ventana {
     }
 
     public void escribirTactica() throws IOException {
-        tactica = textPane1.getText();
-        File fichero = new File("./Ficheros/Tacticas.csv");
-        BufferedWriter escribir = new BufferedWriter(new FileWriter(fichero, true));
+        descripcionTactica = textPane1.getText();
+        BufferedWriter escribir = new BufferedWriter(new FileWriter(ficheroTacticas, true));
 
-        escribir.write(agregarMapa + "," + agregarAgente + "," + agregarBando + "," + agregarRol + "," + agregarPersonas + "," + tactica);
+        escribir.write(agregarMapa + "," + agregarAgente + "," + agregarBando + "," + agregarRol + "," + agregarPersonas + "," + descripcionTactica);
         escribir.write("\n");
         escribir.close();
+    }
+
+    public void fondo(Graphics grafico) {
+        Dimension tamanio = getSize();
+        ImageIcon imagenFondo = new ImageIcon(getClass().getResource("fondoR6.jpg"));
+        grafico.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -209,5 +265,6 @@ public class Ventana {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000,650);
         frame.setVisible(true);
+        frame.setJMenuBar(barraDeMenus);
     }
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ConotroladorRainbow">
+    <output-path>$PROJECT_DIR$/out/artifacts/ConotroladorRainbow</output-path>
+    <root id="archive" name="RainbowProyect.jar">
+      <element id="module-output" name="RainbowProyect" />
+    </root>
+  </artifact>
+</component>
